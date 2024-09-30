@@ -1,0 +1,528 @@
+* {
+  box-sizing: border-box;
+}
+
+.mobile-app-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 123.75rem;
+  background: linear-gradient(180deg, #C2F4FF 0%, #27A7B9 60.1%, #27A7B9 100%);
+  box-shadow: 0px 0.25rem 3.75rem rgba(0, 0, 0, 0.1);
+}
+
+
+.mobile-app-header {
+  padding: 1.125rem 2.5rem;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 10;
+
+  .logo {
+    display: block;
+    height: 6.5rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .menu {
+    // position: fixed; // Уточнить у дизайнера, почему кнопка
+    // right: 3rem;     // меню при прокрутке не фиксируется
+
+    &__btn {
+      width: 2.5rem;
+      height: 1.875rem;
+      background: url('/images/icons/menu.png') center center no-repeat;
+      object-fit: cover;
+    }
+  }
+}
+
+.mobile-app-body {
+  position: relative;
+
+  &__preview {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    pointer-events: none;
+    animation: fadePreview 0.6s ease;
+    animation-fill-mode: forwards;
+
+    &-wrap {
+      position: relative;
+      user-select: none;
+
+      @media (width < 1900px) {
+        text-align: center;
+      }
+    }
+
+    &-img {
+      position: sticky;
+      bottom: 0;
+
+      &:first-child {
+        margin-top: 0.75rem;
+        left: 24.75rem;
+
+        @media (width < 1900px) {
+          height: 760px;
+        }
+
+        @media (width < 1600px) {
+          left: 20rem;
+        }
+
+        @media (width < 1480px) {
+          left: 14rem;
+        }
+      }
+
+      &:last-child {
+        margin-top: 3.25rem;
+        right: 21rem;
+
+        @media (width < 1900px) {
+          height: 820px;
+        }
+
+        @media (width < 1600px) {
+          right: 16rem;
+        }
+
+        @media (width < 1480px) {
+          right: 9rem;
+        }
+      }
+    }
+  }
+
+  &__header {
+    margin: -54.75rem 0 35.5rem;
+    pointer-events: none;
+
+    span {
+      position: relative;
+      display: block;
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 900;
+      font-size: 11.125rem;
+      line-height: 120%;
+      letter-spacing: 0.005em;
+      color: #ffffff;
+      text-align: center;
+      text-transform: uppercase;
+      text-shadow: 0px 0.25rem 2.125rem rgba(19, 127, 141, 0.5);
+      z-index: 11;
+
+      &:nth-child(1) {
+        font-size: 44rem;
+        line-height: 53.75rem;
+        color: #31Adbe;
+        user-select: none;
+        z-index: 9;
+
+        @media (width < 1900px) {
+          font-size: 34rem;
+        }
+
+        @media (width < 1480px) {
+          font-size: 28rem;
+        }
+      }
+
+      &:nth-child(2) {
+        margin-top: 7.5rem;
+
+        @media (width < 1480px) {
+          margin-top: 5.5rem;
+        }
+      }
+
+      &:nth-child(3) {
+        margin-top: 21rem;
+        z-index: 9;
+
+        @media (width < 1480px) {
+          margin-top: 18rem;
+        }
+      }
+
+      &:nth-child(4) {
+        margin-top: 19.75rem;
+
+        @media (width < 1480px) {
+          margin-top: 16.75rem;
+        }
+      }
+
+      &:nth-child(5) {
+        margin-top: 18.125rem;
+
+        @media (width < 1480px) {
+          margin-top: 15.125rem;
+        }
+      }
+
+      @media (width < 1900px) {
+        font-size: 9rem;
+      }
+    }
+  }
+
+  @media (width < 1900px) {
+    margin-bottom: 2rem;
+  }
+
+  @media (width < 1480px) {
+    margin-bottom: 1rem;
+  }
+}
+
+.bubble-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  .bubble {
+    position: absolute;
+    aspect-ratio: 1;
+    background: url('../images/icons/bubble.svg') center center no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    z-index: 12;
+    transition: transform 0.5s;
+    animation: fadeBubble 1.5s;
+    animation-fill-mode: forwards;
+    pointer-events: auto;
+
+    &.xs {
+      width: 2.5rem;
+    }
+
+    &.sm {
+      width: 3.375rem;
+    }
+
+    &.md {
+      width: 5.5rem;
+    }
+
+    &.lg {
+      width: 13.5rem;
+    }
+
+    &:nth-child(1) {
+      top: 12.25rem;
+      left: 4rem;
+    }
+
+    &:nth-child(2) {
+      top: 22.5rem;
+      left: 5.5rem;
+    }
+
+    &:nth-child(3) {
+      top: 30rem;
+      left: 11rem;
+    }
+
+    &:nth-child(4) {
+      top: 34rem;
+      left: 9rem;
+    }
+
+    &:nth-child(5) {
+      top: 47rem;
+      left: 12.5rem;
+    }
+
+    &:nth-child(6) {
+      top: 52.75rem;
+      left: 35rem;
+      z-index: 8;
+    }
+
+    &:nth-child(7) {
+      top: 55rem;
+      left: 74rem;
+    }
+
+    &:nth-child(8) {
+      top: 45rem;
+      left: 72.5rem;
+    }
+
+    &:nth-child(9) {
+      top: 43rem;
+      left: 107rem;
+    }
+
+    &:nth-child(10) {
+      top: 55rem;
+      left: 102rem;
+    }
+
+    &:nth-child(11) {
+      top: 70rem;
+      left: 51rem;
+    }
+
+    &:nth-child(12) {
+      top: 76.5rem;
+      left: 10.25rem;
+    }
+
+    &:nth-child(13) {
+      top: 95.5rem;
+      left: 91.75rem;
+    }
+
+    &:nth-child(14) {
+      top: 86rem;
+      left: 91rem;
+    }
+
+    &:nth-child(15) {
+      top: 109.5rem;
+      left: 27rem;
+    }
+
+    &:nth-child(16) {
+      top: 113.5rem;
+      left: 25rem;
+    }
+
+    &:nth-child(17) {
+      top: 105.25rem;
+      left: 52.75rem;
+      z-index: 8;
+    }
+
+    &:nth-child(18) {
+      top: 102rem;
+      left: 86rem;
+      z-index: 8;
+    }
+
+    &:nth-child(19) {
+      top: 106rem;
+      left: 84rem;
+      z-index: 8;
+    }
+
+    &:nth-child(20) {
+      top: 132rem;
+      left: 38rem;
+      z-index: 8;
+    }
+
+    &:nth-child(21) {
+      top: 139.5rem;
+      left: 35rem;
+      z-index: 8;
+    }
+
+    &:nth-child(22) {
+      top: 138.75rem;
+      left: 39.5rem;
+      z-index: 8;
+    }
+
+    &:nth-child(23) {
+      top: 135rem;
+      left: 75.5rem;
+      z-index: 8;
+    }
+
+    &:nth-child(24) {
+      top: 130.5rem;
+      left: 110rem;
+      z-index: 8;
+    }
+
+    &:nth-child(25) {
+      top: 145rem;
+      left: 9.5rem;
+    }
+
+    &:nth-child(26) {
+      top: 164rem;
+      left: 6.25rem;
+    }
+
+    &:nth-child(27) {
+      top: 170rem;
+      left: 35.75rem;
+    }
+
+    &:nth-child(28) {
+      top: 169rem;
+      left: 57rem;
+    }
+
+    &:nth-child(29) {
+      top: 171rem;
+      left: 61rem;
+    }
+
+    &:nth-child(30) {
+      top: 175.75rem;
+      left: 80.5rem;
+      z-index: 8;
+    }
+
+    &:nth-child(31) {
+      top: 168.75rem;
+      left: 105rem;
+    }
+
+    &:nth-child(32) {
+      top: 164.75rem;
+      left: 107rem;
+    }
+
+    &:nth-child(33) {
+      top: 199rem;
+      left: 1.75rem;
+    }
+
+    &:nth-child(34) {
+      top: 196.75rem;
+      left: 6.625rem;
+    }
+
+    &:nth-child(35) {
+      top: 198.75rem;
+      left: 10.5rem;
+    }
+
+    &:nth-child(36) {
+      top: 202.5rem;
+      left: 35rem;
+      z-index: 8;
+    }
+
+    &:nth-child(37) {
+      top: 194.25rem;
+      left: 38.125rem;
+      z-index: 8;
+    }
+
+    &:nth-child(38) {
+      top: 197.75rem;
+      left: 75.625rem;
+      z-index: 8;
+    }
+
+    &:nth-child(39) {
+      top: 185.25rem;
+      left: 102.75rem;
+      z-index: 8;
+    }
+
+    &:nth-child(40) {
+      top: 211rem;
+      left: 14rem;
+    }
+
+    &:nth-child(41) {
+      top: 221rem;
+      left: 15rem;
+    }
+
+    &:nth-child(42) {
+      top: 228.5rem;
+      left: 38rem;
+      z-index: 8;
+    }
+
+    &:nth-child(43) {
+      top: 214rem;
+      left: 72rem;
+      z-index: 8;
+    }
+
+    &:nth-child(44) {
+      top: 217rem;
+      left: 93.75rem;
+    }
+
+    &:nth-child(45) {
+      top: 220rem;
+      left: 97.875rem;
+    }
+
+    &:nth-child(46) {
+      top: 222rem;
+      left: 110rem;
+    }
+  }
+}
+
+.decorative-line {
+  position: absolute;
+  top: 0;
+  max-height: 100%;
+  pointer-events: none;
+  z-index: 0;
+
+  &.left {
+    left: 0;
+  }
+
+  &.middle {
+    left: 16rem;
+
+    @media (width < 1900px) {
+      display: none;
+    }
+  }
+
+  &.right {
+    right: 0;
+  }
+}
+
+.divider-line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  max-width: 100%;
+  pointer-events: none;
+  z-index: 11;
+}
+
+
+@keyframes fadeBubble {
+  0% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 1
+  }
+}
+
+@keyframes fadePreview {
+  0% {
+    transform: translateY(600px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
